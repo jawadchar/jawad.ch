@@ -1,0 +1,82 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  date: Date;
+  description?: string;
+  tags?: string[];
+  ogImage?: string;
+}
+
+const { title, date, description, tags = [], ogImage } = Astro.props;
+
+const formattedDate = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}).format(date);
+---
+<BaseLayout title={`${title} — jawad.ch`} description={description} ogImage={ogImage}>
+  <article class="max-w-3xl mx-auto px-6 py-16">
+
+    <!-- Back link -->
+    <a
+      href="/blog"
+      class="inline-flex items-center gap-2 text-sm font-mono mb-10 transition-colors"
+      style="color: var(--text-muted);"
+      onmouseover="this.style.color='var(--accent)'"
+      onmouseout="this.style.color='var(--text-muted)'"
+    >
+      <span>←</span> all posts
+    </a>
+
+    <!-- Header -->
+    <header class="mb-10">
+      <h1 class="text-3xl sm:text-4xl font-bold font-mono mb-4 leading-tight" style="color: var(--text);">
+        {title}
+      </h1>
+
+      <div class="flex flex-wrap items-center gap-4 text-sm font-mono" style="color: var(--text-muted);">
+        <time datetime={date.toISOString()}>{formattedDate}</time>
+        {tags.length > 0 && (
+          <div class="flex flex-wrap gap-2">
+            {tags.map(tag => (
+              <span
+                class="px-2 py-0.5 rounded text-xs font-mono"
+                style="background: var(--tag-bg); color: var(--tag-text);"
+              >
+                #{tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {description && (
+        <p class="mt-4 text-base" style="color: var(--text-muted);">{description}</p>
+      )}
+    </header>
+
+    <!-- Divider -->
+    <div class="mb-10 h-px" style="background: var(--border);"></div>
+
+    <!-- Content -->
+    <div class="prose prose-lg max-w-none">
+      <slot />
+    </div>
+
+    <!-- Footer -->
+    <div class="mt-16 pt-8 border-t" style="border-color: var(--border);">
+      <a
+        href="/blog"
+        class="inline-flex items-center gap-2 text-sm font-mono transition-colors"
+        style="color: var(--text-muted);"
+        onmouseover="this.style.color='var(--accent)'"
+        onmouseout="this.style.color='var(--text-muted)'"
+      >
+        ← back to all posts
+      </a>
+    </div>
+  </article>
+</BaseLayout>

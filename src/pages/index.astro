@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const projects = [
+  {
+    title: 'Vulnerability Management Program',
+    description: 'End-to-end simulation of a vulnerability management program — from policy creation and stakeholder engagement through scanning, risk prioritization, and a complete remediation cycle.',
+    href: 'https://github.com/jawadchar/vulnerability-management-program',
+    tags: ['Tenable', 'CVSS', 'PowerShell', 'Risk Mgmt'],
+  },
+  {
+    title: 'Programmatic Vulnerability Remediations',
+    description: 'Tenable plugin ID → CVE mapping with corresponding PowerShell and Bash remediation scripts for systematic, automated vulnerability closure.',
+    href: 'https://github.com/jawadchar/programmatic-vulnerability-remediations',
+    tags: ['PowerShell', 'Bash', 'Tenable', 'Automation'],
+  },
+  {
+    title: 'Threat Hunting: TOR Browser Detection',
+    description: 'Threat hunting scenario documenting detection and analysis of unauthorized TOR browser usage on an enterprise endpoint using Microsoft Defender for Endpoint and KQL.',
+    href: 'https://github.com/jawadchar/threat-hunting-scenario-tor',
+    tags: ['KQL', 'MDE', 'Threat Hunting', 'MITRE ATT&CK'],
+  },
+  {
+    title: 'Internet-Facing Asset Detection',
+    description: 'Identifies virtual machines mistakenly exposed to the public internet and detects associated brute-force login attempts using Microsoft Defender for Endpoint queries.',
+    href: 'https://github.com/jawadchar/public-ip-address-detection',
+    tags: ['KQL', 'MDE', 'NSG', 'Threat Hunting'],
+  },
+  {
+    title: 'KQL Maps',
+    description: 'Microsoft Sentinel map visualizations built with KQL that transform raw security telemetry into geographic insights — designed to communicate risk posture to non-technical stakeholders.',
+    href: 'https://github.com/jawadchar/kql-maps',
+    tags: ['KQL', 'Sentinel', 'Data Viz'],
+  },
+  {
+    title: 'DISA STIG Remediations',
+    description: 'PowerShell and Bash scripts for automating DISA STIG hardening benchmarks across Windows and Linux environments.',
+    href: 'https://github.com/jawadchar/scripts',
+    tags: ['PowerShell', 'Bash', 'DISA STIG', 'Hardening'],
+  },
+];
+
+const skills = [
+  { category: 'SIEM & Detection',        items: ['Microsoft Sentinel', 'KQL', 'Microsoft Defender for Endpoint', 'ELK Stack', 'Syslog'] },
+  { category: 'Vuln Management',          items: ['Tenable', 'CVSS Scoring', 'CVE/CWE', 'DISA STIG', 'Risk Prioritization'] },
+  { category: 'Frameworks',               items: ['MITRE ATT&CK', 'NIST CSF', 'NIST 800-37', 'NIST 800-53', 'NIST 800-61', 'OWASP Top 10'] },
+  { category: 'Scripting & Automation',   items: ['PowerShell', 'Bash', 'IAM', 'Firewall/NSG'] },
+  { category: 'Compliance',               items: ['PCI-DSS', 'HIPAA', 'GDPR', 'ISO 27001', 'SOC 2'] },
+  { category: 'Infrastructure',           items: ['Windows', 'Linux', 'IaaS/PaaS/SaaS', 'OS Hardening', 'Imaging & Deployment'] },
+];
+
+const experience = [
+  {
+    company: 'LogN Pacific',
+    role: 'Cybersecurity Support Analyst',
+    type: 'Vulnerability Management & SecOps · Contract',
+    period: 'Dec 2025 – Present',
+    bullets: [
+      '100% reduction in critical, 90% in high, 76% in medium vulns for the server team via PowerShell-based remediations.',
+      'Performed vulnerability assessments and risk prioritization using Tenable across Windows and Linux environments.',
+      'Executed DISA STIG compliance audits and automated remediation via PowerShell.',
+      'Performed threat hunting with EDR — detecting IoCs from brute force, data exfiltration, and ransomware.',
+      'Developed custom MDE detection rules to automate isolation and investigation of compromised systems.',
+      'Reduced brute force incidents by 100% by implementing inbound NSG/firewall rules.',
+      'Built Microsoft Sentinel dashboards for logon failures and malicious traffic using threat intelligence feeds.',
+    ],
+  },
+  {
+    company: 'G&E Impressions, Inc.',
+    role: 'IT Support Specialist',
+    type: '',
+    period: 'May – Dec 2025',
+    bullets: [
+      'Supported Windows endpoints through hardware, software, and configuration issue diagnosis.',
+      'Applied baseline security practices: OS patching, credential hygiene, backup procedures, and access controls.',
+      'Documented incidents and resolutions to standardize troubleshooting workflows.',
+    ],
+  },
+  {
+    company: 'Self-directed Home Lab',
+    role: 'Cybersecurity Analyst',
+    type: 'SOC-focused lab environment',
+    period: 'May 2025 – Present',
+    bullets: [
+      'Built and maintained a SOC-focused lab (Kali + Windows) for alert triage, host-based investigations, and network analysis.',
+      'Analyzed DNS/network traffic in Wireshark to identify C2 indicators and DoH visibility trade-offs.',
+      'Executed controlled exploitation scenarios and investigated post-compromise behavior (process execution, C2 comms).',
+      'Correlated host and network artifacts to assess impact, persistence, and attacker objectives.',
+    ],
+  },
+];
+---
+<BaseLayout title="Jawad Charafeddine — Cybersecurity Analyst">
+
+  <!-- ── HERO ─────────────────────────────────────────────────────────────── -->
+  <section class="max-w-5xl mx-auto px-6 pt-20 pb-16">
+    <div class="flex flex-col sm:flex-row items-start justify-between gap-10">
+
+      <!-- Left: text -->
+      <div class="flex-1 min-w-0">
+
+        <!-- Prompt line -->
+        <p class="text-sm font-mono mb-4" style="color: var(--text-muted);">
+          <span style="color: var(--accent-green);">❯</span> whoami
+        </p>
+
+        <!-- Name -->
+        <h1 class="text-4xl sm:text-5xl font-bold font-mono tracking-tight mb-3" style="color: var(--text);">
+          Jawad Charafeddine<span class="cursor-blink" style="color: var(--accent);">_</span>
+        </h1>
+
+        <!-- Title -->
+        <p class="text-lg font-mono mb-6" style="color: var(--accent);">
+          Cybersecurity Analyst · Blue Team · SOC · Agentic AI Engineering
+        </p>
+
+        <!-- Bio -->
+        <p class="text-base leading-relaxed max-w-xl mb-8" style="color: var(--text-muted);">
+          I work across the full blue-team lifecycle — vulnerability management, threat hunting,
+          detection engineering, and security operations. Currently focused on building mature
+          detection pipelines and exploring agentic AI applications in SecOps.
+        </p>
+
+        <!-- CTA Links -->
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="https://github.com/jawadchar"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-mono transition-all duration-200"
+            style="background: var(--surface); border: 1px solid var(--border); color: var(--text-muted);"
+            onmouseover="this.style.borderColor='var(--accent)'; this.style.color='var(--accent)';"
+            onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text-muted)';"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a
+            href="https://linkedin.com/in/jawadchar"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-mono transition-all duration-200"
+            style="background: var(--surface); border: 1px solid var(--border); color: var(--text-muted);"
+            onmouseover="this.style.borderColor='var(--accent)'; this.style.color='var(--accent)';"
+            onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text-muted)';"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a
+            href="mailto:contact@jawad.ch"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-mono transition-all duration-200"
+            style="background: var(--surface); border: 1px solid var(--border); color: var(--text-muted);"
+            onmouseover="this.style.borderColor='var(--accent)'; this.style.color='var(--accent)';"
+            onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text-muted)';"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            contact@jawad.ch
+          </a>
+          <a
+            href="/Jawad_Charafeddine_Resume.pdf"
+            download
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-mono transition-all duration-200"
+            style="background: var(--accent); color: var(--bg); border: 1px solid var(--accent);"
+            onmouseover="this.style.opacity='0.85';"
+            onmouseout="this.style.opacity='1';"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            Download CV
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: headshot -->
+      <div class="shrink-0 self-start sm:pt-24">
+        <div class="relative w-40 h-40 sm:w-52 sm:h-52">
+          <img
+            src="/headshot.jpg"
+            alt="Jawad Charafeddine"
+            class="w-full h-full object-cover object-top rounded-full"
+            style="border: 2px solid var(--accent-glow); filter: grayscale(15%);"
+          />
+          <div
+            class="absolute inset-0 rounded-full pointer-events-none"
+            style="box-shadow: 0 0 0 2px var(--accent), 0 0 20px var(--accent-glow);"
+          ></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="max-w-5xl mx-auto px-6"><div class="h-px" style="background: var(--border);"></div></div>
+
+  <!-- ── ABOUT ─────────────────────────────────────────────────────────────── -->
+  <section id="about" class="max-w-5xl mx-auto px-6 py-16">
+    <h2 class="text-xs font-mono uppercase tracking-widest mb-6" style="color: var(--text-muted);">// about</h2>
+    <div class="max-w-2xl space-y-4 text-base leading-relaxed" style="color: var(--text-muted);">
+      <p>
+        I'm a cybersecurity analyst specializing in blue team operations — the work of detecting,
+        investigating, and shutting down threats before they become incidents. My focus is on
+        vulnerability management and security operations, with a particular interest in building
+        detection content and automating remediation at scale.
+      </p>
+      <p>
+        My background spans hands-on SOC work, SIEM engineering (Microsoft Sentinel + KQL),
+        EDR-driven threat hunting, and compliance frameworks (NIST, DISA STIG, PCI-DSS).
+        I also maintain a home lab for continuous research — running controlled attack scenarios,
+        analyzing network traffic, and documenting investigation workflows.
+      </p>
+      <p>
+        Currently building toward agentic AI applications in security operations —
+        where LLM-driven pipelines can triage alerts, enrich context, and accelerate response
+        at a scale that manual SOC work can't match.
+      </p>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="max-w-5xl mx-auto px-6"><div class="h-px" style="background: var(--border);"></div></div>
+
+  <!-- ── EXPERIENCE ─────────────────────────────────────────────────────────── -->
+  <section id="experience" class="max-w-5xl mx-auto px-6 py-16">
+    <h2 class="text-xs font-mono uppercase tracking-widest mb-10" style="color: var(--text-muted);">// experience</h2>
+
+    <div class="relative">
+      <!-- Timeline line -->
+      <div class="absolute left-0 top-2 bottom-2 w-px hidden sm:block" style="background: var(--border);"></div>
+
+      <div class="space-y-12">
+        {experience.map((job) => (
+          <div class="sm:pl-8 relative">
+            <!-- Timeline dot -->
+            <div
+              class="absolute left-[-4px] top-1.5 w-2 h-2 rounded-full hidden sm:block"
+              style="background: var(--accent);"
+            ></div>
+
+            <!-- Header row -->
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-3">
+              <div>
+                <h3 class="font-mono font-semibold text-base" style="color: var(--text);">{job.company}</h3>
+                <p class="text-sm font-mono" style="color: var(--accent);">{job.role}</p>
+                {job.type && <p class="text-xs font-mono mt-0.5" style="color: var(--text-muted);">{job.type}</p>}
+              </div>
+              <span class="text-xs font-mono shrink-0" style="color: var(--text-muted);">{job.period}</span>
+            </div>
+
+            <!-- Bullets -->
+            <ul class="space-y-1.5">
+              {job.bullets.map(b => (
+                <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--text-muted);">
+                  <span class="shrink-0 mt-1.5 w-1 h-1 rounded-full" style="background: var(--accent);"></span>
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Education & Certs -->
+    <div class="mt-14 grid sm:grid-cols-2 gap-6">
+      <div class="rounded-xl p-5" style="background: var(--surface); border: 1px solid var(--border);">
+        <h3 class="text-xs font-mono uppercase tracking-widest mb-3" style="color: var(--text-muted);">education</h3>
+        <p class="font-mono font-semibold text-sm" style="color: var(--text);">University of Houston</p>
+        <p class="text-sm mt-1" style="color: var(--text-muted);">B.S. Psychology · Biology Minor</p>
+      </div>
+      <div class="rounded-xl p-5" style="background: var(--surface); border: 1px solid var(--border);">
+        <h3 class="text-xs font-mono uppercase tracking-widest mb-3" style="color: var(--text-muted);">certifications</h3>
+        <div class="space-y-1">
+          {['CompTIA Security+', 'CompTIA CySA+', 'THM Cyber Security 101'].map(cert => (
+            <div class="flex items-center gap-2 text-sm font-mono" style="color: var(--text);">
+              <span style="color: var(--accent-green);">✓</span> {cert}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="max-w-5xl mx-auto px-6"><div class="h-px" style="background: var(--border);"></div></div>
+
+  <!-- ── PROJECTS ───────────────────────────────────────────────────────────── -->
+  <section id="projects" class="max-w-5xl mx-auto px-6 py-16">
+    <h2 class="text-xs font-mono uppercase tracking-widest mb-8" style="color: var(--text-muted);">// projects</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {projects.map(p => <ProjectCard {...p} />)}
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="max-w-5xl mx-auto px-6"><div class="h-px" style="background: var(--border);"></div></div>
+
+  <!-- ── SKILLS ─────────────────────────────────────────────────────────────── -->
+  <section id="skills" class="max-w-5xl mx-auto px-6 py-16">
+    <h2 class="text-xs font-mono uppercase tracking-widest mb-8" style="color: var(--text-muted);">// skills & tools</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {skills.map(({ category, items }) => (
+        <div>
+          <h3 class="text-xs font-mono uppercase tracking-widest mb-3" style="color: var(--accent);">{category}</h3>
+          <div class="flex flex-wrap gap-2">
+            {items.map(item => (
+              <span
+                class="text-xs font-mono px-2.5 py-1 rounded-md"
+                style="background: var(--surface); border: 1px solid var(--border); color: var(--text-muted);"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+</BaseLayout>

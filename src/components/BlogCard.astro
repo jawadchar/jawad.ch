@@ -1,0 +1,48 @@
+---
+interface Props {
+  title: string;
+  date: Date;
+  description?: string;
+  tags?: string[];
+  slug: string;
+}
+
+const { title, date, description, tags = [], slug } = Astro.props;
+
+const formattedDate = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+}).format(date);
+---
+<a
+  href={`/blog/${slug}`}
+  class="group block rounded-xl p-5 transition-all duration-200"
+  style="background: var(--surface); border: 1px solid var(--border);"
+  onmouseover="this.style.borderColor='var(--accent)'; this.style.boxShadow='0 0 0 1px var(--accent), 0 4px 24px var(--accent-glow)';"
+  onmouseout="this.style.borderColor='var(--border)'; this.style.boxShadow='none';"
+>
+  <div class="flex items-start justify-between gap-4 mb-2">
+    <h2 class="font-mono font-semibold text-base leading-snug transition-colors group-hover:text-[var(--accent)]" style="color: var(--text);">
+      {title}
+    </h2>
+    <span class="text-xs font-mono shrink-0 mt-0.5" style="color: var(--text-muted);">{formattedDate}</span>
+  </div>
+
+  {description && (
+    <p class="text-sm leading-relaxed mb-3" style="color: var(--text-muted);">{description}</p>
+  )}
+
+  {tags.length > 0 && (
+    <div class="flex flex-wrap gap-2">
+      {tags.map(tag => (
+        <span
+          class="text-xs font-mono px-2 py-0.5 rounded"
+          style="background: var(--tag-bg); color: var(--tag-text);"
+        >
+          #{tag}
+        </span>
+      ))}
+    </div>
+  )}
+</a>

@@ -1,0 +1,14 @@
+dist/
+node_modules/
+.astro/
+.env
+.env.*
+!.env.example
+*.tgz
+
+# Netlify
+.netlify/
+
+# OS
+.DS_Store
+Thumbs.db

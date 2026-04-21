@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Contact — jawad.ch"
+  description="Get in touch with Jawad Charafeddine"
+>
+  <section class="max-w-2xl mx-auto px-6 py-16">
+
+    <div class="mb-10">
+      <p class="text-sm font-mono mb-3" style="color: var(--text-muted);">
+        <span style="color: var(--accent-green);">❯</span> contact --help
+      </p>
+      <h1 class="text-3xl font-bold font-mono" style="color: var(--text);">Get in touch</h1>
+      <p class="mt-2 text-sm" style="color: var(--text-muted);">
+        Reach me directly at{' '}
+        <a
+          href="mailto:contact@jawad.ch"
+          class="font-mono transition-colors"
+          style="color: var(--accent);"
+        >
+          contact@jawad.ch
+        </a>
+        {' '}or use the form below.
+      </p>
+    </div>
+
+    <!-- Netlify form -->
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      class="space-y-5"
+      id="contact-form"
+    >
+      <!-- Netlify hidden fields -->
+      <input type="hidden" name="form-name" value="contact" />
+      <p class="hidden">
+        <label>Don't fill this out: <input name="bot-field" /></label>
+      </p>
+
+      <!-- Name -->
+      <div>
+        <label for="name" class="block text-xs font-mono uppercase tracking-widest mb-2" style="color: var(--text-muted);">
+          name
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          placeholder="Your name"
+          class="w-full px-4 py-3 rounded-lg text-sm font-mono outline-none transition-all"
+          style="background: var(--surface); border: 1px solid var(--border); color: var(--text);"
+          onfocus="this.style.borderColor='var(--accent)'; this.style.boxShadow='0 0 0 1px var(--accent)';"
+          onblur="this.style.borderColor='var(--border)'; this.style.boxShadow='none';"
+        />
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-xs font-mono uppercase tracking-widest mb-2" style="color: var(--text-muted);">
+          email
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="your@email.com"
+          class="w-full px-4 py-3 rounded-lg text-sm font-mono outline-none transition-all"
+          style="background: var(--surface); border: 1px solid var(--border); color: var(--text);"
+          onfocus="this.style.borderColor='var(--accent)'; this.style.boxShadow='0 0 0 1px var(--accent)';"
+          onblur="this.style.borderColor='var(--border)'; this.style.boxShadow='none';"
+        />
+      </div>
+
+      <!-- Message -->
+      <div>
+        <label for="message" class="block text-xs font-mono uppercase tracking-widest mb-2" style="color: var(--text-muted);">
+          message
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          rows="6"
+          placeholder="What's on your mind?"
+          class="w-full px-4 py-3 rounded-lg text-sm font-mono outline-none transition-all resize-none"
+          style="background: var(--surface); border: 1px solid var(--border); color: var(--text);"
+          onfocus="this.style.borderColor='var(--accent)'; this.style.boxShadow='0 0 0 1px var(--accent)';"
+          onblur="this.style.borderColor='var(--border)'; this.style.boxShadow='none';"
+        ></textarea>
+      </div>
+
+      <!-- Submit -->
+      <button
+        type="submit"
+        class="w-full sm:w-auto px-6 py-3 rounded-lg text-sm font-mono font-semibold transition-all duration-200 cursor-pointer"
+        style="background: var(--accent); color: var(--bg); border: 1px solid var(--accent);"
+        onmouseover="this.style.opacity='0.85';"
+        onmouseout="this.style.opacity='1';"
+      >
+        send message →
+      </button>
+    </form>
+
+    <!-- Success message (shown after Netlify redirect) -->
+    <div id="form-success" class="hidden mt-6 p-4 rounded-lg" style="background: var(--surface); border: 1px solid var(--accent-green);">
+      <p class="text-sm font-mono" style="color: var(--accent-green);">✓ Message sent — I'll get back to you soon.</p>
+    </div>
+
+    <!-- Divider -->
+    <div class="my-10 h-px" style="background: var(--border);"></div>
+
+    <!-- Direct contact options -->
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a
+        href="mailto:contact@jawad.ch"
+        class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-mono transition-all duration-200"
+        style="background: var(--surface); border: 1px solid var(--border); color: var(--text-muted);"
+        onmouseover="this.style.borderColor='var(--accent)'; this.style.color='var(--accent)';"
+        onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text-muted)';"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        contact@jawad.ch
+      </a>
+      <a
+        href="https://linkedin.com/in/jawadchar"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-mono transition-all duration-200"
+        style="background: var(--surface); border: 1px solid var(--border); color: var(--text-muted);"
+        onmouseover="this.style.borderColor='var(--accent)'; this.style.color='var(--accent)';"
+        onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text-muted)';"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        linkedin.com/in/jawadchar
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Show success message if redirected back with ?success
+  if (window.location.search.includes('success')) {
+    document.getElementById('contact-form')?.classList.add('hidden');
+    document.getElementById('form-success')?.classList.remove('hidden');
+  }
+</script>

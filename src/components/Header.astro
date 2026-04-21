@@ -1,0 +1,91 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+
+const nav = [
+  { label: 'blog',     href: '/blog' },
+  { label: 'projects', href: '/#projects' },
+  { label: 'cv',       href: '/Jawad_Charafeddine_Resume.pdf', download: true },
+  { label: 'contact',  href: '/contact' },
+];
+
+const pathname = Astro.url.pathname;
+---
+<header
+  class="sticky top-0 z-50 w-full backdrop-blur-md"
+  style="background: color-mix(in srgb, var(--bg) 80%, transparent); border-bottom: 1px solid var(--border);"
+>
+  <nav class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a
+      href="/"
+      class="font-mono font-bold text-sm tracking-tight transition-colors"
+      style="color: var(--accent);"
+    >
+      jawad.ch
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden sm:flex items-center gap-6">
+      {nav.map(({ label, href, download }) => (
+        <a
+          href={href}
+          download={download || undefined}
+          class={[
+            'text-sm font-mono transition-colors',
+            pathname === href ? 'text-[var(--accent)]' : '',
+          ].join(' ')}
+          style={pathname === href ? 'color: var(--accent)' : 'color: var(--text-muted)'}
+          onmouseover="this.style.color='var(--accent)'"
+          onmouseout={`this.style.color='${pathname === href ? 'var(--accent)' : 'var(--text-muted)'}'`}
+        >
+          {label}
+        </a>
+      ))}
+      <ThemeToggle />
+    </div>
+
+    <!-- Mobile: just theme toggle + hamburger placeholder -->
+    <div class="flex sm:hidden items-center gap-3">
+      <ThemeToggle />
+      <button
+        id="mobile-menu-btn"
+        aria-label="Open menu"
+        class="w-9 h-9 flex flex-col items-center justify-center gap-1.5 rounded-lg"
+        style="color: var(--text-muted); border: 1px solid var(--border);"
+      >
+        <span class="block w-4 h-0.5 rounded" style="background: currentColor;"></span>
+        <span class="block w-4 h-0.5 rounded" style="background: currentColor;"></span>
+        <span class="block w-3 h-0.5 rounded" style="background: currentColor;"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile dropdown -->
+  <div
+    id="mobile-menu"
+    class="hidden sm:hidden px-6 pb-4 flex flex-col gap-3"
+    style="border-top: 1px solid var(--border);"
+  >
+    {nav.map(({ label, href, download }) => (
+      <a
+        href={href}
+        download={download || undefined}
+        class="text-sm font-mono py-1 transition-colors"
+        style="color: var(--text-muted);"
+      >
+        {label}
+      </a>
+    ))}
+  </div>
+</header>
+
+<script>
+  function initMobileMenu() {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+  }
+  initMobileMenu();
+  document.addEventListener('astro:after-swap', initMobileMenu);
+</script>

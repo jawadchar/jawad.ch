@@ -1,0 +1,44 @@
+---
+const year = new Date().getFullYear();
+---
+<footer
+  class="w-full mt-20 py-8"
+  style="border-top: 1px solid var(--border);"
+>
+  <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm font-mono" style="color: var(--text-muted);">
+    <span>© {year} Jawad Charafeddine</span>
+    <div class="flex items-center gap-5">
+      <a
+        href="https://github.com/jawadchar"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition-colors hover:text-[var(--accent)]"
+        style="color: var(--text-muted);"
+        onmouseover="this.style.color='var(--accent)'"
+        onmouseout="this.style.color='var(--text-muted)'"
+      >
+        github
+      </a>
+      <a
+        href="https://linkedin.com/in/jawadchar"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition-colors"
+        style="color: var(--text-muted);"
+        onmouseover="this.style.color='var(--accent)'"
+        onmouseout="this.style.color='var(--text-muted)'"
+      >
+        linkedin
+      </a>
+      <a
+        href="mailto:contact@jawad.ch"
+        class="transition-colors"
+        style="color: var(--text-muted);"
+        onmouseover="this.style.color='var(--accent)'"
+        onmouseout="this.style.color='var(--text-muted)'"
+      >
+        email
+      </a>
+    </div>
+  </div>
+</footer>

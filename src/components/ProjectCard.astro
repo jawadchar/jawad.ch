@@ -1,0 +1,50 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  tags?: string[];
+}
+
+const { title, description, href, tags = [] } = Astro.props;
+---
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="group block rounded-xl p-5 transition-all duration-200"
+  style="background: var(--surface); border: 1px solid var(--border);"
+  onmouseover="this.style.borderColor='var(--accent)'; this.style.boxShadow='0 0 0 1px var(--accent), 0 4px 24px var(--accent-glow)';"
+  onmouseout="this.style.borderColor='var(--border)'; this.style.boxShadow='none';"
+>
+  <!-- Tags -->
+  {tags.length > 0 && (
+    <div class="flex flex-wrap gap-2 mb-3">
+      {tags.map(tag => (
+        <span
+          class="text-xs font-mono px-2 py-0.5 rounded"
+          style="background: var(--tag-bg); color: var(--tag-text);"
+        >
+          {tag}
+        </span>
+      ))}
+    </div>
+  )}
+
+  <!-- Title -->
+  <h3
+    class="font-mono font-semibold text-base mb-2 flex items-center gap-2 transition-colors"
+    style="color: var(--text);"
+  >
+    {title}
+    <span
+      class="text-xs transition-transform group-hover:translate-x-0.5"
+      style="color: var(--accent);"
+    >→</span>
+  </h3>
+
+  <!-- Description -->
+  <p class="text-sm leading-relaxed" style="color: var(--text-muted);">
+    {description}
+  </p>
+</a>

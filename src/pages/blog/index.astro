@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+
+const allPosts = await getCollection('blog');
+
+const posts = allPosts
+  .filter(p => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+function getSlug(entry: typeof posts[number]): string {
+  const raw = entry.data.slug ?? entry.id;
+  return raw
+    .replace(/\.mdx?$/, '')
+    .split('/')
+    .pop()!
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '');
+}
+---
+<BaseLayout
+  title="Blog — jawad.ch"
+  description="Blue team field notes — threat hunting, vuln management, detection engineering, and security operations."
+>
+  <section class="max-w-3xl mx-auto px-6 py-16">
+
+    <div class="mb-10">
+      <p class="text-sm font-mono mb-3" style="color: var(--text-muted);">
+        <span style="color: var(--accent-green);">❯</span> ls ./blog
+      </p>
+      <h1 class="text-3xl font-bold font-mono" style="color: var(--text);">
+        blue team field notes
+      </h1>
+      <p class="mt-2 text-sm" style="color: var(--text-muted);">
+        Threat hunting, vulnerability management, detection engineering, and security operations.
+      </p>
+    </div>
+
+    {posts.length === 0 ? (
+      <div class="rounded-xl p-8 text-center" style="background: var(--surface); border: 1px solid var(--border);">
+        <p class="font-mono text-sm" style="color: var(--text-muted);">// no posts yet — check back soon</p>
+      </div>
+    ) : (
+      <div class="space-y-4">
+        {posts.map(post => (
+          <BlogCard
+            title={post.data.title}
+            date={post.data.date}
+            description={post.data.description}
+            tags={post.data.tags}
+            slug={getSlug(post)}
+          />
+        ))}
+      </div>
+    )}
+  </section>
+</BaseLayout>
