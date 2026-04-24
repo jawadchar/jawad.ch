@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="404 — Page Not Found">
+  <section class="max-w-5xl mx-auto px-6 pt-32 pb-16 text-center">
+    <p class="text-sm font-mono mb-4" style="color: var(--text-muted);">
+      <span style="color: var(--accent-green);">❯</span> cat /dev/null
+    </p>
+    <h1 class="text-6xl font-bold font-mono tracking-tight mb-4" style="color: var(--text);">
+      404<span class="cursor-blink" style="color: var(--accent);">_</span>
+    </h1>
+    <p class="text-base font-mono mb-8" style="color: var(--text-muted);">
+      Page not found. This path doesn't exist.
+    </p>
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-mono transition-all duration-200"
+      style="background: var(--surface); border: 1px solid var(--border); color: var(--text-muted);"
+      onmouseover="this.style.borderColor='var(--accent)'; this.style.color='var(--accent)';"
+      onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text-muted)';"
+    >
+      ← back to home
+    </a>
+  </section>
+</BaseLayout>
