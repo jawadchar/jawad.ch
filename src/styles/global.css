@@ -23,6 +23,23 @@
   size-adjust: 115%;
 }
 
+/* ─── JetBrains Mono Nerd Font (code blocks only) ────────────────────────── */
+@font-face {
+  font-family: "JetBrainsMonoNF";
+  src: url("/fonts/JetBrainsMonoNerdFont-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrainsMonoNF";
+  src: url("/fonts/JetBrainsMonoNerdFont-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ─── Design tokens ───────────────────────────────────────────────────────── */
 :root {
   --bg:           #f0f4fa;
@@ -143,6 +160,11 @@ body {
 .prose :where(pre):not(:where([class~="not-prose"] *)) {
   border: 1px solid var(--border);
   border-radius: 8px;
+  font-family: "JetBrainsMonoNF", ui-monospace, monospace;
+}
+
+.prose :where(pre code):not(:where([class~="not-prose"] *)) {
+  font-family: "JetBrainsMonoNF", ui-monospace, monospace;
 }
 
 .prose :where(a):not(:where([class~="not-prose"] *)) {
