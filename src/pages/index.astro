@@ -271,20 +271,25 @@ const experience = [
         <p class="text-sm mt-1" style="color: var(--text-muted);">B.S. Psychology · Biology Minor</p>
       </div>
       <div class="rounded-xl p-5" style="background: var(--surface); border: 1px solid var(--border);">
-        <h3 class="text-xs font-mono uppercase tracking-widest mb-4" style="color: var(--text-muted);">certifications</h3>
-        <div class="flex flex-wrap gap-4 items-start">
-          <div
-            data-iframe-width="150"
-            data-iframe-height="270"
-            data-share-badge-id="3d8c00c0-fcf5-4112-9b7e-04d2146b3530"
-            data-share-badge-host="https://www.credly.com"
-          ></div>
-          <div
-            data-iframe-width="150"
-            data-iframe-height="270"
-            data-share-badge-id="5ed332bf-c43a-4025-8d3c-5b30f96b5f81"
-            data-share-badge-host="https://www.credly.com"
-          ></div>
+        <h3 class="text-xs font-mono uppercase tracking-widest mb-3" style="color: var(--text-muted);">certifications</h3>
+        <div class="space-y-1">
+          {[
+            { name: 'CompTIA Security+', href: 'https://www.credly.com/badges/3d8c00c0-fcf5-4112-9b7e-04d2146b3530/public_url' },
+            { name: 'CompTIA CySA+',     href: 'https://www.credly.com/badges/5ed332bf-c43a-4025-8d3c-5b30f96b5f81/public_url' },
+          ].map(({ name, href }) => (
+            <div class="flex items-center gap-2 text-sm font-mono" style="color: var(--text);">
+              <span style="color: var(--accent-green);">✓</span>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="transition-colors duration-150 hover-accent"
+                style="color: var(--text);"
+                onmouseover="this.style.color='var(--accent)';"
+                onmouseout="this.style.color='var(--text)';"
+              >{name} <span style="font-size: 0.65rem; vertical-align: super;">↗</span></a>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -327,5 +332,3 @@ const experience = [
   </section>
 
 </BaseLayout>
-
-<script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
