@@ -4,6 +4,12 @@ import ProjectCard from '../components/ProjectCard.astro';
 
 const projects = [
   {
+    title: 'AI Alert Triage Agent',
+    description: 'Claude-powered SOC agent that autonomously investigates Microsoft Sentinel incidents — querying Log Analytics, enriching IOCs via AbuseIPDB and VirusTotal, mapping MITRE ATT&CK techniques, and writing the analyst brief.',
+    href: 'https://github.com/jawadchar/alert-triage',
+    tags: ['Python', 'Claude API', 'Microsoft Sentinel', 'KQL', 'MITRE ATT&CK'],
+  },
+  {
     title: 'Vulnerability Management Program',
     description: 'End-to-end simulation of a vulnerability management program — from policy creation and stakeholder engagement through scanning, risk prioritization, and a complete remediation cycle.',
     href: 'https://github.com/jawadchar/vulnerability-management-program',
@@ -32,12 +38,6 @@ const projects = [
     description: 'Microsoft Sentinel map visualizations built with KQL that transform raw security telemetry into geographic insights — designed to communicate risk posture to non-technical stakeholders.',
     href: 'https://github.com/jawadchar/kql-maps',
     tags: ['KQL', 'Sentinel', 'Data Viz'],
-  },
-  {
-    title: 'AI Alert Triage Agent',
-    description: 'Claude-powered SOC agent that autonomously investigates Microsoft Sentinel incidents — querying Log Analytics, enriching IOCs via AbuseIPDB and VirusTotal, mapping MITRE ATT&CK techniques, and writing the analyst brief.',
-    href: 'https://github.com/jawadchar/alert-triage',
-    tags: ['Python', 'Claude API', 'Microsoft Sentinel', 'KQL', 'MITRE ATT&CK'],
   },
   {
     title: 'DISA STIG Remediations',
@@ -215,9 +215,12 @@ const experience = [
         analyzing network traffic, and documenting investigation workflows.
       </p>
       <p>
-        Currently building toward agentic AI applications in security operations —
-        where LLM-driven pipelines can triage alerts, enrich context, and accelerate response
-        at a scale that manual SOC work can't match.
+        Currently applying agentic AI to security operations — building LLM-driven pipelines
+        that triage alerts, enrich context, and accelerate response at a scale that manual SOC
+        work can't match.
+      </p>
+      <p>
+        Currently open to full-time SOC Analyst and Vulnerability Management Analyst roles.
       </p>
       <p>
         I also like cats, science-fiction, and my favorite nerd font is Agave.
