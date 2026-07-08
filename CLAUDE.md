@@ -28,6 +28,7 @@ Jawad Charafeddine's professional portfolio and blog. Primary audience: potentia
 - **Education:** B.S. Psychology, Biology Minor — University of Houston
 - **Core skills:** Microsoft Sentinel / KQL, Defender for Endpoint, Tenable, MITRE ATT&CK, NIST frameworks, PowerShell, Python, Bash
 - **Differentiator:** Combines traditional SOC depth (detection, threat hunting, vuln management) with agentic AI engineering (Claude API, tool-use patterns)
+- **Resume on site:** v2.8.4 (updated 2026-07-08)
 
 ---
 

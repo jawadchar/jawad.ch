@@ -4,6 +4,12 @@ import ProjectCard from '../components/ProjectCard.astro';
 
 const projects = [
   {
+    title: 'Vulnerability Triage Agent',
+    description: 'Async pipeline that ingests findings from Tenable.io, enriches each one with NVD, CISA KEV, and EPSS data, applies a composite risk score weighted by asset criticality, and routes prioritized output to Jira and Slack. Phase 1 validated against 14,866 real findings.',
+    href: 'https://github.com/jawadchar/vuln-agent',
+    tags: ['Python', 'FastAPI', 'Tenable', 'EPSS', 'CISA KEV', 'PostgreSQL'],
+  },
+  {
     title: 'AI Alert Triage Agent',
     description: 'Claude-powered SOC agent that autonomously investigates Microsoft Sentinel incidents — querying Log Analytics, enriching IOCs via AbuseIPDB and VirusTotal, mapping MITRE ATT&CK techniques, and writing the analyst brief.',
     href: 'https://github.com/jawadchar/alert-triage',
